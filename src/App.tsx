@@ -1,13 +1,11 @@
 import React from 'react';
-import { Label } from './components/atoms/Label/Label';
 
 import styles from './App.module.css';
+import { Main } from './components/pages/Main/Main';
 
 function App() {
   return (
-    <main className={styles.root}>
-      <Label text="Our hopes are collapsed"/>
-    </main>
+    <Main />
   );
 }
 

@@ -3,13 +3,12 @@ import React from 'react';
 import styles from './Label.module.css';
 
 type Props = {
-  text: string
+  children: JSX.Element | string
 }
 
 export const Label = (props: Props) => {
-  const { text } = props;
 
   return (
-    <label className={styles.root}>{text}</label>
+    <label className={styles.root}>{props.children}</label>
   );
 };
