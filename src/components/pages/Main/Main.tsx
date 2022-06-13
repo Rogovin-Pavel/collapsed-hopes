@@ -1,26 +1,34 @@
 /* eslint-disable react/no-unescaped-entities */
-import React, { Fragment } from 'react';
+import React, { useEffect, useMemo } from 'react';
 import { Page } from './../../templates/Page/Page';
-import { Label } from '../../atoms/Label/Label';
-import { Paragraph } from '../../atoms/Paragraph/Paragraph';
-import { useStore } from '../../../store/store';
+
+import { useMainContent } from '../../../store/store';
+import { useAnimationObserver } from '../../../hooks/useAnimationObserver';
+
+import styles from './Main.module.css';
 
 export const Main = () => {
-  const { count, increase, decrease, reset } = useStore(state => state);
+  const { about, fetch } = useMainContent(state => state);
+  const { firstname, lastname, profession } = about;
+
+  const title = `My name is ${firstname} ${lastname}.`;
+  const label = `I'm a ${profession}`;
+
+  const [headingRef] = useAnimationObserver(styles.slideOut);
+
+  useEffect(() => {
+    fetch();
+  }, []);
 
   return (
-    <Page
-      heading="Our hopes are collapsed"
-      content={
-        <Fragment>
-          <Label>Are you going to live forever?</Label>
-          <Paragraph>Let's do it together.</Paragraph>
-          <Paragraph>{count}</Paragraph>
-          <button onClick={increase}>+</button>
-          <button onClick={decrease}>-</button>
-          <button onClick={reset}>reset counter</button>
-        </Fragment>
-      }
-    />
+    <main className={styles.root}>
+      <Page>
+        <h1
+          ref={headingRef}
+          className={styles.heading}>
+          Hello.<br />{title}<br />{label}
+        </h1>
+      </Page>
+    </main>
   );
 };

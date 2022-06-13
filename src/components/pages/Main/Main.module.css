@@ -1,0 +1,61 @@
+.root {
+  height: 2000px;
+  /* display: flex;
+  flex-direction: column;
+  justify-content: flex-end; */
+}
+
+.skill {
+  color: var(--primary);
+}
+
+.heading {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  color: var(--primary);
+  font-family: var(--fascinate-font);
+  height: fit-content;
+  margin: 0;
+  padding: 0;
+  font-size: 60px;
+  grid-area: heading;
+  line-height: 90px;
+  font-weight: 500;
+}
+
+.slideOut {
+  animation: .6s ease-in .6s forwards slideOut;
+}
+
+.slideIn {
+  animation: .6s ease-in forwards slideIn;
+}
+
+@keyframes slideOut {
+  0% {
+    transform: translate(0%, 0%) scale(1);
+  }
+
+  50% {
+    transform: translate(45%, 0%);
+  }
+
+  100% {
+    transform: translate(45%, 100%) scale(0.6);
+  }
+}
+
+@keyframes slideIn {
+  0% {
+    transform: translate(45%, 100%) scale(0.6);
+  }
+
+  50% {
+    transform: translate(45%, 0%);
+  }
+
+  100% {
+    transform: translate(0%, 0%) scale(1);
+  }
+}

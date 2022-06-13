@@ -1,0 +1,6 @@
+{
+  "firstname": "Pavel",
+  "lastname": "Rogovin",
+  "profession": "Frontend developer",
+  "skills": ["JavaScript", "Vue", "React", "HTML5", "CSS3"]
+}
